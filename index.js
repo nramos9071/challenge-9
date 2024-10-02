@@ -25,11 +25,7 @@ const questions = [
 // TODO: Create a function to write README file
 function writeToFile() {
 
-
-
-    
-
-   fs.writeFile('README.md', response, (err) => {
+    fs.writeFile('README.md', JSON.stringify(response), (err) => {
     err ? console.error(err) : console.log('README Created!')
     })
 
@@ -40,13 +36,16 @@ function init() {
 inquirer
     .prompt(questions)
     .then((response) => 
-    console.log(response));
- 
-    
+    console.log(response))
+    async (response) => {
+        writeToFile(response);
+    }
+      
 
 // TODO: Create a function to initialize app
 
 };
 // Function call to initialize app
 init();
-// writeToFile();
+
+
