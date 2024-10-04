@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require('fs');
+const { generateMarkdown } = require('./generateMarkdown')
 let response = []
 
 
@@ -16,6 +17,11 @@ const questions = [
         type: 'input',
         message:'Please describe your project.',
         name: 'description',
+    },
+    {
+        type: 'input',
+        message: 'Which license are you using?',
+        name: 'license'
     }
 
   
